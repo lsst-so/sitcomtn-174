@@ -1,0 +1,56 @@
+\section{Impact on Shear Systematics}
+
+Systematics due to DCR propagate to the cosmic shear measurement through PSF modeling errors.
+These errors are additive and the subset of them due to DCR can typically be represented as,
+
+\begin{equation*}
+    \mathbf{\gamma}_{\rm obs} = \mathbf{\gamma}_{\rm true}  + \beta \delta\mathbf{e}^{\rm DCR}
+\end{equation*}
+
+to second order, following \cite{gatti2021}, where $\beta$ is an empirically estimated quantity that is typically of order unity. Therefore, ignoring chance correlations $\langle \mathbf{\gamma}_{\rm true} \delta\mathbf{e}^{\rm DCR}\rangle$, the impact on the cosmic shear is approximately,
+
+\begin{equation*}
+    \langle \mathbf{\gamma}_{\rm obs}\mathbf{\gamma}_{\rm obs} \rangle \approx \langle \mathbf{\gamma}_{\rm true}\mathbf{\gamma}_{\rm true} \rangle  + \beta^2 \langle \delta\mathbf{e}^{\rm DCR} \delta\mathbf{e}^{\rm DCR}\rangle.
+\end{equation*}
+
+In practice, we can forecast this impact as follows. We set $\beta = 1$ as it is typically of order unity.
+As shown in Figure \ref{fig:g_dcr} \& \ref{fig:r_dcr}, the $\delta\mathbf{e}^{\rm DCR}$ due to DCR is determined empirically using stars as diagnostics. 
+The values $\rm DCR_1$ and $\rm DCR_2$ themselves can also be determined from the time, RA and Dec of observation and through Equation \ref{eq:dcr}. 
+From the LSST survey scheduler OpSim Baseline v5.1.0, we find this information for each exposure, calculate and tile the $\rm DCR$ values across the exposure field of view (approximated as a circle of radius 1.75\textdegree), and finally aggregate them into a HEALPix map of the sky weighted by the effective exposure time $T_{\rm eff}\times \rm visitExposureTime$.
+This is shown in Figure \ref{fig:dcr_maps}.
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=0.9\textwidth]{figures/LSSTY10_DCR.png}
+    \caption{Differential Chromatic Refraction maps for LSST Y10 WFD using OpSim Baseline v5.1.0.} 
+    \label{fig:dcr_maps}
+\end{figure}
+
+DCR is a function of the color difference between the average PSF star and galaxies. Therefore, higher redshift galaxies that are redder have greater DCR effect. 
+We estimate the average range of source galaxy colors in LSST redshift bins using galaxies from DES.
+To do so, we draw galaxies from the DES into LSST redshift bins and use their color distribution  for LSST.
+Given that LSST goes to higher redshifts than DES, this works for all but the last redshift bin. 
+For this bin, we linearly extrapolate the galaxy colors out to high redshift.
+This assumption is likely the largest source of inaccuracy in this forecast, as the slope of the $\rm{DCR}-\delta e$ relation itself is sensitive to the $r-z$ color of the galaxies.
+Additionally, as the Balmer break shifts out of the $z$-band at $z\approx 1.5$, it is unlikely that the galaxy colors increase linearly.
+However, for a worst-case forecast, this is a reasonable assumption.
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[width=0.9\textwidth]{figures/LSSTY10_dcrsyst.png}
+    \caption{Impact of DCR on the cosmic shear two-point correlation function. In blue, we show the fiducial cosmic shear for the most impacted tomographic bin autocorrelation (5, 5). The black line represents the statistical jackknife uncertainty of cosmic shear, as a baseline. The DCR Systematic $\langle \delta\mathbf{e}^{\rm DCR} \delta\mathbf{e}^{\rm DCR}\rangle$ if uncorrected (shown in green) is comparable to or larger than LSST Y10 statistical uncertainty for $\xi_+$. The corrected DCR signal shown in red sufficiently reduces this effect by two orders of magnitude.} 
+    \label{fig:dcr_syst}
+\end{figure}
+
+Finally, we linearly fit the color-dependent $\rm{DCR}-\delta e$ relation for the uncorrected and corrected chromatic PSF case, and apply it to the DCR maps (Figure \ref{fig:dcr_maps}). 
+To calculate the two-point correlation function of this error map, we use the \texttt{treecorr} software \citep{Jarvis2004}. 
+We create a catalog from pixels, and perform the correlation $\langle \delta\mathbf{e}^{\rm DCR} \delta\mathbf{e}^{\rm DCR}\rangle$ for a range from 2.5 to 1000 arcmin, with 26 bins (to mimic DES within its range), and a \texttt{bin\_slop} of 0.1.
+To forecast the shear signal and uncertainty, we use \texttt{GLASS} \citep{tessore2023}, alongside the redshift distributions forecast by the LSST Science Requirements Document \citep{lsstsrd2018} and \texttt{treecorr} to estimate the jackknife uncertainty.
+The results are shown in Figure \ref{fig:dcr_syst}.
+
+We find that the DCR systematic has a non-negligible impact on $\xi_+$, where for Y10 of the LSST survey, systematic uncertainties would have been comparable to statistical uncertainties if uncorrected. 
+Correcting for the chromatic PSF using PiFF color-dependence sufficiently reduces this systematic by 2 orders of magnitude, and may become more accurate as the survey progresses.
+Even post-correction, we note that on large scales $\theta \gtrsim 300 \, \rm arcmin$, where the statistical uncertainty is dominated by cosmic variance, DCR systematics approach 10\% of cosmic shear $\xi_+$ (and statistical uncertainty).
+However, since the statistical uncertainty dominates, this does not affect cosmological measurement.
+For $\xi_-$, the impact from DCR is negligible.
+Further detailed study of the forecasted impact of DCR and other shape systematics for LSST will be presented in  \citet{Agarwal2026}. 
