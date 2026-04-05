@@ -6,12 +6,14 @@ DECam, the camera used to conduct the survey, is a 570-megapixel wide-field imag
 The survey imaged approximately \SI{5000}{deg^2} of the southern sky in five broadband filters ($grizY$) to a typical depth of $i \approx 24$\,mag (10$\sigma$ for galaxies). 
 
 The PSF pipelines used by the Rubin Observatory are modelled after the DES pipelines, including the use of the same PSF modelling software: \texttt{PiFF}.
-As the two surveys share similar science goals, we compare current Rubin Observatory PSF characteristics to DES Year 6 PSF results \citep{schutt2025}. The DES Y6 PSF star sample consists of $\sim$ 110 million stars, while the Rubin week 49 DRP data contains $\sim$ 153 million stars.
+As the two surveys share similar science goals, we compare current Rubin Observatory PSF characteristics to DES Year 6 PSF results \citep{schutt2025}. The DES Y6 PSF star sample consists of $\sim$ 110 million stars, while the Rubin week 49 DRP data contains $\sim$ 153 source detections.
+Note that the DES Y6 colour fitting was done with a first order polynomial, while this work uses a second order polynomial.
 
 \begin{figure}[h!]
     \centering
 \includegraphics[width=0.4\textwidth]{figures/des_mag.pdf}
-    \caption{DES Y6 PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of magnitude. Stars are divided into equal-sized colour bins of $g-i \in [0.0, 0.8, 2.5, 3.5]$.} 
+    \caption{DES Y6 PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of magnitude. Stars are divided into equal-sized colour bins of $g-i \in [0.0, 0.8, 2.5, 3.5]$
+    (This plot is identical to the top three panels of Fig.~15 in \cite{schutt2025}).} 
     \label{fig:des_mag}
 \end{figure}
 
@@ -21,7 +23,8 @@ Comparing the residuals to Fig.~\ref{subfig:residuals_vs_mag_b}, we find that th
 \begin{figure}[h!]
     \centering
 \includegraphics[width=0.5\textwidth]{figures/des_color.pdf}
-    \caption{DES Y6 residuals as a function of $g-i$ colour (for the $gri$ bands) and $i-z$ colour (for the $z$ band).} 
+    \caption{DES Y6 residuals as a function of $g-i$ colour (for the $gri$ bands) and $i-z$ colour (for the $z$ band)
+    (This plot is identical to the four left panels of Fig.~18 in \cite{schutt2025}).} 
     \label{fig:des_color}
 \end{figure}
 
@@ -43,7 +46,8 @@ Comparing the colour dependence to Fig.~\ref{subfig:color_vs_residuals_b}, DES Y
     \label{subfig:des_dcr_r}
   \end{subfigure}
 
-  \caption{DES Y6 PSF $\delta e_1$ and $\delta e_2$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively, in the $g$ and $r$ bands.}
+  \caption{DES Y6 PSF $\delta e_1$ and $\delta e_2$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively, in the $g$ and $r$ bands
+  (This plot is identical to the top two panels of Fig.~16 in \cite{schutt2025}).}
   \label{fig:des_dcr}
 \end{figure}
 

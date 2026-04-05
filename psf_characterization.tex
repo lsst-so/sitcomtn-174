@@ -1,4 +1,5 @@
 \section{PSF Characterization}
+In this section we give a brief overview of the PSF fitting procedure used by \texttt{PiFF}, our definitions of PSF related quantities and the fitting configuration used for the data.
 \subsection{Fitting}
 For a given single-visit image processed by the DRP, the PSF is fit independently on each CCD. 
 Under the default DRP configuration, which does not include chromatic corrections, the PSF 
@@ -9,7 +10,7 @@ model and a smaller, reserved sample used for PSF diagnostic tests. A model is t
 estimate of the PSF parameters (position, and optionally, wavelength) at each stellar location. Finally, the fitted model parameters are interpolated across 
 the stellar sample to estimate the PSF over the full focal plane using a second order polynomial. To incorporate colour 
 dependence in the PSF modeling, we provide \texttt{PiFF} with stellar colours derived using the 
-Forward Global Calibration Method \citep[FGCM;][]{2018AJ....155...41B}, which are computed in a preceding 
+Forward Global Calibration Method \citep[FGCM;][]{burke2017}, which are computed in a preceding 
 step of the DRP.
 
 \subsection{PSF Shape Definitions}
