@@ -68,7 +68,6 @@ For $\delta e_{1}$ and $\delta e_{2}$, chromatic fitting tightens the residuals 
 It is comparatively ineffective in tightening the reddest colour bin at the bright end.
 
 
-
 \subsection{Residuals by colour}
 
 Figure~\ref{fig:residuals_vs_colour} plots the PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ residuals as a function of $g-i$ colour.
@@ -167,3 +166,46 @@ Figure~\ref{fig:r_dcr} shows the PSF $\delta e_{1}$ and $\delta e_{2}$ as a func
 The stars are separated in colour bins of $g-i \in [0.64, 0.85, 1.5, 3.5]$.
 Chromatic fitting of the PSF corrects DCR dependent residuals by up to $\sim$ 50\% in $\delta e_{1}$ and $\delta e_{2}$.
 
+We also transform PSF moments from celestial coordinates into the altitude/azimuth frame of the telescope. 
+Equation~\ref{eq:altaz_residuals} defines residuals in this frame that are similar to $\delta e_1$ and $\delta e_2$ in celestial coordinates, but without the trace normalizing factors in Eq.~\ref{eq:psf_residuals}.
+\begin{equation}
+    \label{eq:altaz_residuals}
+    \begin{aligned}
+        \delta e_1 &\sim \delta I_{xx} - \delta I_{yy} \\
+        \delta e_2 &\sim 2 \delta I_{xy} \\
+    \end{aligned}
+\end{equation}
+Here, the subscript `x' stands for altitude and `y' for azimuth. This projects the moments such that the DCR effect is captured completely along the altitude axis -- where the PSF is stretched proportionally to $\tan^2{z}$ (where $z$ is the zenith angle).
+
+\begin{figure}[h!]
+  \centering
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/shape_residuals_vs_dcr_altaz_g_no_correction.png}
+    \caption{without chromatic PSF fitting.}
+    \label{subfig:dcr_altaz_vs_residuals_a}
+  \end{subfigure}
+  \medskip
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/shape_residuals_vs_dcr_altaz_g_with_correction.png}
+    \caption{with chromatic PSF fitting.}
+    \label{subfig:dcr_altaz_vs_residuals_b}
+  \end{subfigure}
+
+ \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.25\textwidth]{figures/zenith_angle_hist_g_no_correction.png}
+    \caption{Distribution of $\tan^2{z}$ in $g$ band.}
+    \label{subfig:dcr_altaz_vs_residuals_c}
+  \end{subfigure}
+  \caption{Residuals (in Alt/Az coordinates) vs. $\tan^2{z}$ in g-band. The leftmost panel shows the trace residual $\delta T$, and the other two panels show residuals defined in Eq.~\ref{eq:altaz_residuals}. 
+  Chromatic fitting reduces residuals by almost an order of magnitude.}
+  \label{fig:dcr_g_altaz}
+\end{figure}
+
+Figure~\ref{fig:dcr_g_altaz} shows residuals vs. $\tan^2{z}$ in $g$ band. 
+The DCR effect is captured entirely along the altitude axis shown which can be seen in the middle plot. 
+The residual along the azimuth axis (rightmost plot) is completely independent of DCR.
+Subfigure~\ref{subfig:dcr_altaz_vs_residuals_c} shows the distribution of $\tan^2{z}$ in the week 49 DRP data common to both Subfigs.~\ref{subfig:dcr_altaz_vs_residuals_a} and \ref{subfig:dcr_altaz_vs_residuals_b}.
