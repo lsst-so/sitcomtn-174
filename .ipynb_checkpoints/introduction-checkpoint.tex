@@ -1,0 +1,29 @@
+\section{Introduction}
+Weak gravitational lensing of the large-scale structure (cosmic shear) is one of the key tools in cosmology for understanding the distribution of cosmic structures and deducting the cosmological model that gave rise to it. 
+According to General Relativity, light is bent when it passes through gravitational perturbations sourced by cosmic structure. 
+This means that the light rays from distant galaxies are ``lensed'' as they travel to us, resulting in small distortions in the observed galaxy shapes. 
+This distortion encodes information of the cosmic structure, allowing us to probe (visible and invisible) cosmic structure.
+
+The central observable in weak lensing is thus the shapes of galaxy images. 
+In particular, we are interested in the galaxy shapes after it has been distorted (or lensed) by the cosmic structure but before it is distorted further by atmospheric or instrumental effects.
+As this exact quantity is not observable, we can only derive it by having a good model of the atmospheric and instrumental effects, or the Point Spread Function (PSF).
+
+The PSF refers to how a point source will look like on our detectors at a given time and location on the focal plane. 
+It encodes the net effect from the atmosphere, the optics and the detectors and can be thought of as a convolution kernel (or a Green's function) that is applied to the light that comes into the telescope. 
+Having a precise and accurate PSF model for each galaxy is key to the success of weak lensing science for Rubin LSST.
+
+One of the subtleties in modeling the PSF is that the PSF is wavelength-dependent. 
+In particular, Differential Chromatic Refraction \citep[DCR,][]{DMTN-017, 2012PASP..124.1113A, 2015ApJ...807..182M} and chromatic seeing are the dominating wavelength-dependent PSF effects that exist in ground-based imaging instruments such as Rubin's LSSTCam. When we look through the atmosphere at different airmass, the light rays that enter the atmosphere come in a non-perpendicular incident angle and refraction happens at the interface.
+Blue light refracts more than red light, causing small distortions or displacements of the observed objects that depend on their wavelength. 
+This tech note focuses on this effect and how we could model it in the Rubin pipeline.
+
+The Rubin Observatory uses a PSF fitting strategy adapted from the Dark Energy Survey (DES), which is based on the PSF in the Full Focal plane (\texttt{PiFF}) algorithm \citep{jarvis2021}. 
+In this note we examine the performance of the PSF modeling in the Rubin commissioning data. 
+We use the weekly intermittent LSST Science Pipelines \citep{PSTN-019} \texttt{w\_2025\_49} data.
+
+The structure of this note is as follows. Section 2 describes the DCR effect. 
+Section 3 describes the data products used in this study. 
+Section 4 discusses the fitting procedure, PSF residual definitions and the PSF fitting configuration.
+Section 5 shows the results of enabling chromatic fitting on PSF residuals. 
+In Section 6 we compare our results with that from DES and in Section 7 propagate the PSF residuals to expected residuals in shear measurements (we only consider additive biases due to DCR and not multiplicative biases due to chromatic seeing).
+

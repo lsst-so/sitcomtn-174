@@ -1,14 +1,15 @@
 \section{Results}
+\label{sec:results}
 In this section, we study PSF size and ellipticity residuals as a function of magnitude, sky position (DCR), and colour. 
 We use data from the week 49 DRP\footnote{collection: \texttt{LSSTCam/runs/DRP/20250417\_20250921/w\_2025\_49/DM-53545}}, which contains 4898 visits and $\sim$ 153 million source detections. 
-We perform the measurements using all stars, and we use stars binned by $g-i$ colour in 3 equally distributed bins to quantify the colour-dependent effects. 
+We perform the measurements using all stars, and we use stars binned by $\textit{g}-\textit{i}$ colour in 3 equally distributed bins to quantify the colour-dependent effects. 
 We show how the PSF model improves when enabling chromatic fitting of the PSF in \texttt{PiFF}. 
 This analysis was performed on the Rubin Science Platform (RSP) at the US Data Facility (USDF). 
 
 
 \subsection{Residuals by magnitude}
 Figure~\ref{fig:residuals_vs_mag} shows the PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ residuals as a function of star magnitude. 
-The stars have been divided into colour bins of $g-i \in [0.66, 0.94, 1.78, 3.5]$. 
+The stars have been divided into colour bins of $\textit{g}-\textit{i} \in [0.66, 0.94, 1.78, 3.5]$. 
 \begin{figure}[h!]
   \centering
 
@@ -27,7 +28,7 @@ The stars have been divided into colour bins of $g-i \in [0.66, 0.94, 1.78, 3.5]
   \end{subfigure}
 
   \caption{PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of \texttt{ap12Flux\_mag} before (a) and after (b) turning on chromatic PSF fitting. 
-  Note that the y-axis ranges in (a) and (b) are different. Stars are divided into equal-sized colour bins of $g-i \in [0.66, 0.94, 1.78, 3.5]$. 
+  Note that the y-axis ranges in (a) and (b) are different. Stars are divided into equal-sized colour bins of $\textit{g}-\textit{i} \in [0.66, 0.94, 1.78, 3.5]$. 
   Enabling chromatic PSF reduces the spread or residuals between colour bins. }
   \label{fig:residuals_vs_mag}
 \end{figure}
@@ -45,11 +46,11 @@ The stars have been divided into colour bins of $g-i \in [0.66, 0.94, 1.78, 3.5]
     \centering
     \includegraphics[width=1\textwidth]{figures/color_separated_residuals_vs_calibfluxmag_with_correction_g_band.png}
     \caption{with chromatic PSF fitting.}
-    
+    \label{subfig:residuals_vs_mag_g_b}
   \end{subfigure}
 
-  \caption{PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ for $g$ band visits only as a function of \texttt{ap12Flux\_mag} before (a) and after (b) turning on chromatic PSF fitting. 
-  Note that the y-axis ranges in (a) and (b) are different. Stars are divided into equal-sized colour bins of $g-i \in [0.65, 0.87, 1.39, 3.5]$. 
+  \caption{PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ for {\it g} band visits only as a function of \texttt{ap12Flux\_mag} before (a) and after (b) turning on chromatic PSF fitting. 
+  Note that the y-axis ranges in (a) and (b) are different. Stars are divided into equal-sized colour bins of $\textit{g}-\textit{i} \in [0.65, 0.87, 1.39, 3.5]$. 
   Enabling chromatic PSF shows the most improvement in the residuals in the blue, faint objects.}
   \label{fig:residuals_vs_mag_g}
 \end{figure}
@@ -60,9 +61,8 @@ Enabling chromatic fitting of the PSF tightens and thereby reduces the spread in
 As expected, the magnitude of the errors are not reduced by chromatic fitting, but the spread between the individual colour bins is reduced, which can be most clearly seen in $\delta T/T$. 
 
 
-Figure~\ref{fig:residuals_vs_mag_g} shows the residuals of PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of star magnitude for visits in the $g$ band only, where we expect to see the most significant chromatic PSF effect. 
-%The discrepancy between the residuals in each colour bin is the largest for visits in the $g$ band.
-The stars are divided into colour bins of $g-i \in [0.65, 0.87, 1.39, 3.5]$. 
+Figure~\ref{fig:residuals_vs_mag_g} shows the residuals of PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of star magnitude for visits in the {\it g} band only, where we expect to see the most significant chromatic PSF effect. 
+The stars are divided into colour bins of $\textit{g}-\textit{i} \in [0.65, 0.87, 1.39, 3.5]$. 
 Enabling chromatic fitting reduces $\delta T/T$ residuals by $\sim$ 50\%.
 For $\delta e_{1}$ and $\delta e_{2}$, chromatic fitting tightens the residuals at the faint end (mag > 18) by $\sim$ 75\%.
 It is comparatively ineffective in tightening the reddest colour bin at the bright end.
@@ -70,11 +70,11 @@ It is comparatively ineffective in tightening the reddest colour bin at the brig
 
 \subsection{Residuals by colour}
 
-Figure~\ref{fig:residuals_vs_colour} plots the PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ residuals as a function of $g-i$ colour.
-Subfig.~\ref{subfig:color_vs_residuals_c} shows the number density of stars as a function of $g-i$ colour, which is common to both subfigures~\ref{subfig:color_vs_residuals_a}. and \ref{subfig:color_vs_residuals_b}.
-The residuals of $\delta T/T$ and $\delta e_{1}$ show the strongest colour dependence in the $u$ and $g$ bands respectively.
-Chromatic fitting corrects the colour dependence in the $g$ band, but is ineffective in correcting the $u$ band colour dependence.
-However, this could be due to the lack of enough objects in the $u$ band in red $g-i$ bins, as can be seen in the histogram.
+Figure~\ref{fig:residuals_vs_colour} plots the PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ residuals as a function of $\textit{g}-\textit{i}$ colour.
+Subfig.~\ref{subfig:color_vs_residuals_c} shows the number density of stars as a function of $\textit{g}-\textit{i}$ colour, which is common to both subfigures~\ref{subfig:color_vs_residuals_a}. and \ref{subfig:color_vs_residuals_b}.
+The residuals of $\delta T/T$ and $\delta e_{1}$ show the strongest colour dependence in the {\it u} and {\it g} bands respectively.
+Chromatic fitting corrects the colour dependence in the {\it g} band, but is ineffective in correcting the {\it u} band colour dependence.
+However, this could be due to the lack of enough objects in the {\it u} band in red $\textit{g}-\textit{i}$ bins, as can be seen in the histogram.
 The discrepancy between the trends of $\delta e_1$ and $\delta e_2$ residuals could also be due to the non-isotropic distribution of parallactic angles leading to different mean values of $\cos 2q$ and $\sin 2q$, which are the relevant scaling quantities for $\delta e_1$ and $\delta e_2$ respectively.
 For the data in the week 49 DRP, $\langle \cos 2q \rangle = -0.29$ and $\langle \sin 2q \rangle = -0.17$. 
 These plots of the parallactic angle are shown in Appendix~\ref{app:parallactic_angle_plots}.
@@ -99,21 +99,21 @@ These plots of the parallactic angle are shown in Appendix~\ref{app:parallactic_
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.3\textwidth]{figures/color_hist.png}
-    \caption{Number density as a function of $g-i$ colour.}
+    \caption{Number density as a function of $\textit{g}-\textit{i}$ colour.}
     \label{subfig:color_vs_residuals_c}
   \end{subfigure}
 
-  \caption{PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of $g-i$ colour. 
-  The $u$ and $g$ band residuals show the highest dependence on $g-i$ colour. 
+  \caption{PSF $\delta T/T$, $\delta e_1$ and $\delta e_2$ as a function of $\textit{g}-\textit{i}$ colour. 
+  The {\it u} and {\it g} band residuals show the highest dependence on $\textit{g}-\textit{i}$ colour. 
   Note that the y-axis ranges in (a) and (b) are different.
-  Enabling chromatic fitting corrects the $g$ band colour dependence, but is unable to correct the $u$ band dependence, possibly due to the small number of observations with red $g-i$ colour. }
+  Enabling chromatic fitting corrects the {\it g} band colour dependence, but is unable to correct the {\it u} band dependence, possibly due to the small number of observations with red $\textit{g}-\textit{i}$ colour. }
   \label{fig:residuals_vs_colour}
 \end{figure}
 
 \subsection{Residuals by Position (DCR)}
 
-Figure~\ref{fig:g_dcr} shows the PSF $\delta e_{1}$ and $\delta e_{2}$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively for observations in the $g$ band, which is affected the most by DCR.
-The stars are separated in colour bins of $g-i \in [0.64, 0.85, 1.5, 3.5]$.
+Figure~\ref{fig:g_dcr} shows the PSF $\delta e_{1}$ and $\delta e_{2}$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively for observations in the {\it g} band, which is affected the most by DCR.
+The stars are separated in colour bins of $\textit{g}-\textit{i} \in [0.64, 0.85, 1.5, 3.5]$.
 Chromatic fitting of the PSF corrects DCR dependent residuals by up to $\sim$ 90\% in $\delta e_{1}$ and up to $\sim$ 95\% in $\delta e_{2}$, therefore reducing DCR dependent errors by almost an order of magnitude.
 
 \begin{figure}[h!]
@@ -135,7 +135,7 @@ Chromatic fitting of the PSF corrects DCR dependent residuals by up to $\sim$ 90
 
   \caption{PSF $\delta e_1$ and $\delta e_2$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively before (a) and after (b) turning on chromatic PSF fitting. 
   Note that the y-axis ranges in (a) and (b) are different.
-  Chromatic fitting of the PSF reduces residuals by up to $\sim$ 95\% in the $g$-band.}
+  Chromatic fitting of the PSF reduces residuals by up to $\sim$ 95\% in the {\it g} band.}
   \label{fig:g_dcr}
 \end{figure}
 
@@ -158,12 +158,12 @@ Chromatic fitting of the PSF corrects DCR dependent residuals by up to $\sim$ 90
 
   \caption{PSF $\delta e_1$ and $\delta e_2$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively  before (a) and after (b) turning on chromatic PSF fitting. 
   Note that the y-axis ranges in (a) and (b) are different.
-  Chromatic fitting of the PSF reduces residuals by up to $\sim$50\% in the $r$-band.}
+  Chromatic fitting of the PSF reduces residuals by up to $\sim$50\% in the {\it r} band.}
   \label{fig:r_dcr}
 \end{figure}
 
-Figure~\ref{fig:r_dcr} shows the PSF $\delta e_{1}$ and $\delta e_{2}$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively for observations in the $r$ band.
-The stars are separated in colour bins of $g-i \in [0.64, 0.85, 1.5, 3.5]$.
+Figure~\ref{fig:r_dcr} shows the PSF $\delta e_{1}$ and $\delta e_{2}$ as a function of $\mathrm{DCR_1}$ and $\mathrm{DCR_2}$ respectively for observations in the {\it r} band.
+The stars are separated in colour bins of $\textit{g}-\textit{i} \in [0.64, 0.85, 1.5, 3.5]$.
 Chromatic fitting of the PSF corrects DCR dependent residuals by up to $\sim$ 50\% in $\delta e_{1}$ and $\delta e_{2}$.
 
 We also transform PSF moments from celestial coordinates into the altitude/azimuth frame of the telescope. 
@@ -197,15 +197,15 @@ Here, the subscript `x' stands for altitude and `y' for azimuth. This projects t
  \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.25\textwidth]{figures/zenith_angle_hist_g_no_correction.png}
-    \caption{Distribution of $\tan^2{z}$ in $g$ band.}
+    \caption{Distribution of $\tan^2{z}$ in {\it g} band.}
     \label{subfig:dcr_altaz_vs_residuals_c}
   \end{subfigure}
-  \caption{Residuals (in Alt/Az coordinates) vs. $\tan^2{z}$ in g-band. The leftmost panel shows the trace residual $\delta T$, and the other two panels show residuals defined in Eq.~\ref{eq:altaz_residuals}. 
+  \caption{Residuals (in Alt/Az coordinates) vs. $\tan^2{z}$ in {\it g} band. The leftmost panel shows the trace residual $\delta T$, and the other two panels show residuals defined in Eq.~\ref{eq:altaz_residuals}. 
   Chromatic fitting reduces residuals by almost an order of magnitude.}
   \label{fig:dcr_g_altaz}
 \end{figure}
 
-Figure~\ref{fig:dcr_g_altaz} shows residuals vs. $\tan^2{z}$ in $g$ band. 
+Figure~\ref{fig:dcr_g_altaz} shows residuals vs. $\tan^2{z}$ in {\it g} band. 
 The DCR effect is captured entirely along the altitude axis shown which can be seen in the middle plot. 
 The residual along the azimuth axis (rightmost plot) is completely independent of DCR.
 Subfigure~\ref{subfig:dcr_altaz_vs_residuals_c} shows the distribution of $\tan^2{z}$ in the week 49 DRP data common to both Subfigs.~\ref{subfig:dcr_altaz_vs_residuals_a} and \ref{subfig:dcr_altaz_vs_residuals_b}.
